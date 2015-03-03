@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TPM.master.cs" Inherits="TPM.TPM" %>
+
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="PRAGMA" CONTENT="NO-CACHE">
+        <meta http-equiv="expires" CONTENT="-1">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+  
+</head>
+<body>
+    <div class="container-fluid">
+       
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="progressAjax" style="display:none" id="loading" >
+                        <img src="./Images/30 (3).gif"/>
+                </div>
+            </div>
+        </div>
+         <asp:ContentPlaceHolder ID="BodyContentHolder" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+      <script type="text/javascript">
+          //<![CDATA[
+          $.ajaxSetup({
+              beforeSend: function () {
+                  // show gif here, eg:
+                  $("#loading").show();
+              },
+              complete: function () {
+                  // hide gif here, eg:
+                  $("#loading").hide();
+              }
+          });
+          //]]>
+
+    </script>
+    <asp:ContentPlaceHolder ID="FooterScriptsHolder" runat="server">
+        
+    </asp:ContentPlaceHolder>
+  
+</body>
+</html>

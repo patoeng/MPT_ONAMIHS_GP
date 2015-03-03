@@ -1,0 +1,17 @@
+Scan Trouble Shoot :
+
+1. Masuk Ke Explorer
+2. Pilih Setting --> conection --> wireless manager ___. Enter
+3.  If OK Wifi Conect  To TP-LINK_A60408 ____> Check Di Menu ----> Wifi setting 
+4. List Netwok Pilih TP-LINK_A60408 
+5. Configure Wireless Network
+   Conect To : WORK ----> Next
+   Authentication : WPA-PSK
+   Data Encryption : TKIP
+   Network Key : SBMOVENSHIMANO ( huruf Besar Semua )----> nEXT -----> fINISH
+
+
+Menacari Programe :
+1. Enter Start
+2. Pilih File Explorer
+3. pilih My Document -----> Pilih MobileDC

@@ -1,0 +1,858 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{811D8171-10EE-4FC6-A33F-DB5B96C3F3B4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TPM</RootNamespace>
+    <AssemblyName>TPM</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib">
+      <HintPath>..\..\..\..\..\..\..\c#\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ClassLibrary3">
+      <HintPath>..\..\ClassLibrary3\ClassLibrary3\bin\Debug\ClassLibrary3.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>..\..\..\..\ECO\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Femiani.Web.Modules.SharedSessionModule">
+      <HintPath>..\..\..\..\..\Downloads\Compressed\SharedSessionModule_demo\Femiani.Web.Modules.SharedSessionModule\bin\Debug\Femiani.Web.Modules.SharedSessionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="LumenWorks.Framework.IO">
+      <HintPath>..\..\..\..\ECO\LumenWorks.Framework.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ASMODAttribute.aspx" />
+    <Content Include="EmailNew.aspx" />
+    <Content Include="Methodes\Emailing.asmx" />
+    <Content Include="Scripts\highcharts-3d.js" />
+    <Content Include="TpmEmailNew.aspx" />
+    <Content Include="YAccAttachment.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="FAccident.aspx" />
+    <Content Include="FileUploader.aspx" />
+    <Content Include="FIWOrkOrder.aspx" />
+    <Content Include="FWorkOrder.aspx" />
+    <Content Include="GetSessions.aspx" />
+    <Content Include="Images\294.gif" />
+    <Content Include="Images\30 %281%29.gif" />
+    <Content Include="Images\30 %282%29.gif" />
+    <Content Include="Images\30 %283%29.gif" />
+    <Content Include="Images\30.gif" />
+    <Content Include="Images\blue.gif" />
+    <Content Include="Images\indicator.gif" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\back_disabled.png" />
+    <Content Include="Images\back_enabled.png" />
+    <Content Include="Images\back_enabled_hover.png" />
+    <Content Include="Images\deactivate.jpg" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\edit.jpg" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\forward_disabled.png" />
+    <Content Include="Images\forward_enabled.png" />
+    <Content Include="Images\forward_enabled_hover.png" />
+    <Content Include="Images\glyphicons-halflings-white.png" />
+    <Content Include="Images\glyphicons-halflings.png" />
+    <Content Include="Images\sort_asc.png" />
+    <Content Include="Images\sort_asc_disabled.png" />
+    <Content Include="Images\sort_both.png" />
+    <Content Include="Images\sort_desc.png" />
+    <Content Include="Images\sort_desc_disabled.png" />
+    <Content Include="Images\Stop1.png" />
+    <Content Include="Images\underConstruction.jpg" />
+    <Content Include="MasterChecklist.aspx" />
+    <Content Include="MChecklist.aspx" />
+    <Content Include="MCheckListPM.aspx" />
+    <Content Include="Methodes\accident.asmx" />
+    <Content Include="Methodes\bmht.asmx" />
+    <Content Include="Methodes\bom.asmx" />
+    <Content Include="Methodes\Bulk.asmx" />
+    <Content Include="Methodes\crud.asmx" />
+    <Content Include="Methodes\downtime.asmx" />
+    <Content Include="Methodes\iwo.asmx" />
+    <Content Include="Methodes\mainpage.asmx" />
+    <Content Include="Methodes\MasterChecklist.asmx" />
+    <Content Include="Methodes\pm.asmx" />
+    <Content Include="Methodes\report - Copy.asmx" />
+    <Content Include="Methodes\report.asmx" />
+    <Content Include="Methodes\Report2.asmx" />
+    <Content Include="Methodes\user.asmx" />
+    <Content Include="Methodes\workorder.asmx" />
+    <Content Include="PMBoms.aspx" />
+    <Content Include="PMedit.aspx" />
+    <Content Include="PMScheduleUpload.aspx" />
+    <Content Include="PrintChecklist.aspx" />
+    <Content Include="printchecklistSearch.aspx" />
+    <Content Include="Report2.aspx" />
+    <Content Include="Scripts\csv.js" />
+    <Content Include="Scripts\flot\API.txt" />
+    <Content Include="Scripts\flot\examples\ajax.html" />
+    <Content Include="Scripts\flot\examples\ajaxauto.html" />
+    <Content Include="Scripts\flot\examples\annotating.html" />
+    <Content Include="Scripts\flot\examples\arrow-down.gif" />
+    <Content Include="Scripts\flot\examples\arrow-left.gif" />
+    <Content Include="Scripts\flot\examples\arrow-right.gif" />
+    <Content Include="Scripts\flot\examples\arrow-up.gif" />
+    <Content Include="Scripts\flot\examples\basic.html" />
+    <Content Include="Scripts\flot\examples\graph-types.html" />
+    <Content Include="Scripts\flot\examples\history.html" />
+    <Content Include="Scripts\flot\examples\hs-2004-27-a-large_web.jpg" />
+    <Content Include="Scripts\flot\examples\image.html" />
+    <Content Include="Scripts\flot\examples\index.html" />
+    <Content Include="Scripts\flot\examples\interacting-axes.html" />
+    <Content Include="Scripts\flot\examples\interacting.html" />
+    <Content Include="Scripts\flot\examples\layout.css" />
+    <Content Include="Scripts\flot\examples\multiple-axes.html" />
+    <Content Include="Scripts\flot\examples\navigate.html" />
+    <Content Include="Scripts\flot\examples\percentiles.html" />
+    <Content Include="Scripts\flot\examples\pie.html" />
+    <Content Include="Scripts\flot\examples\realtime.html" />
+    <Content Include="Scripts\flot\examples\resize.html" />
+    <Content Include="Scripts\flot\examples\selection.html" />
+    <Content Include="Scripts\flot\examples\selector.htm" />
+    <Content Include="Scripts\flot\examples\setting-options.html" />
+    <Content Include="Scripts\flot\examples\stacking.html" />
+    <Content Include="Scripts\flot\examples\symbols.html" />
+    <Content Include="Scripts\flot\examples\thresholding.html" />
+    <Content Include="Scripts\flot\examples\time.html" />
+    <Content Include="Scripts\flot\examples\tracking.html" />
+    <Content Include="Scripts\flot\examples\turning-series.html" />
+    <Content Include="Scripts\flot\examples\visitors.html" />
+    <Content Include="Scripts\flot\examples\zooming.html" />
+    <Content Include="Scripts\flot\excanvas.js" />
+    <Content Include="Scripts\flot\excanvas.min.js" />
+    <Content Include="Scripts\flot\FAQ.txt" />
+    <Content Include="Scripts\flot\jquery.colorhelpers.js" />
+    <Content Include="Scripts\flot\jquery.colorhelpers.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.axislabels.js" />
+    <Content Include="Scripts\flot\jquery.flot.barnumbers.js" />
+    <Content Include="Scripts\flot\jquery.flot.crosshair.js" />
+    <Content Include="Scripts\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Scripts\flot\jquery.flot.fillbetween.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.image.js" />
+    <Content Include="Scripts\flot\jquery.flot.image.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.js" />
+    <Content Include="Scripts\flot\jquery.flot.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.navigate.js" />
+    <Content Include="Scripts\flot\jquery.flot.navigate.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.pie.js" />
+    <Content Include="Scripts\flot\jquery.flot.pie.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.resize.js" />
+    <Content Include="Scripts\flot\jquery.flot.resize.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.selection.js" />
+    <Content Include="Scripts\flot\jquery.flot.selection.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.stack.js" />
+    <Content Include="Scripts\flot\jquery.flot.stack.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.symbol.js" />
+    <Content Include="Scripts\flot\jquery.flot.symbol.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.threshold.js" />
+    <Content Include="Scripts\flot\jquery.flot.threshold.min.js" />
+    <Content Include="Scripts\flot\jquery.js" />
+    <Content Include="Scripts\flot\jquery.min.js" />
+    <Content Include="Scripts\flot\LICENSE.txt" />
+    <Content Include="Scripts\flot\NEWS.txt" />
+    <Content Include="Scripts\flot\PLUGINS.txt" />
+    <Content Include="Scripts\flot\README.txt" />
+    <Content Include="Scripts\highcharts-all.js" />
+    <Content Include="Scripts\highcharts-dark-blue.js" />
+    <Content Include="Scripts\highcharts-dark-unica.js" />
+    <Content Include="Scripts\highcharts.js" />
+    <Content Include="Scripts\highchart\adapters\standalone-framework.js" />
+    <Content Include="Scripts\highchart\adapters\standalone-framework.src.js" />
+    <Content Include="Scripts\highchart\highcharts-3d.js" />
+    <Content Include="Scripts\highchart\highcharts-3d.src.js" />
+    <Content Include="Scripts\highchart\highcharts-all.js" />
+    <Content Include="Scripts\highchart\highcharts-more.js" />
+    <Content Include="Scripts\highchart\highcharts-more.src.js" />
+    <Content Include="Scripts\highchart\highcharts.js" />
+    <Content Include="Scripts\highchart\highcharts.src.js" />
+    <Content Include="Scripts\highchart\modules\canvas-tools.js" />
+    <Content Include="Scripts\highchart\modules\canvas-tools.src.js" />
+    <Content Include="Scripts\highchart\modules\data.js" />
+    <Content Include="Scripts\highchart\modules\data.src.js" />
+    <Content Include="Scripts\highchart\modules\drilldown.js" />
+    <Content Include="Scripts\highchart\modules\drilldown.src.js" />
+    <Content Include="Scripts\highchart\modules\exporting.js" />
+    <Content Include="Scripts\highchart\modules\exporting.src.js" />
+    <Content Include="Scripts\highchart\modules\funnel.js" />
+    <Content Include="Scripts\highchart\modules\funnel.src.js" />
+    <Content Include="Scripts\highchart\modules\heatmap.js" />
+    <Content Include="Scripts\highchart\modules\heatmap.src.js" />
+    <Content Include="Scripts\highchart\modules\no-data-to-display.js" />
+    <Content Include="Scripts\highchart\modules\no-data-to-display.src.js" />
+    <Content Include="Scripts\highchart\modules\solid-gauge.js" />
+    <Content Include="Scripts\highchart\modules\solid-gauge.src.js" />
+    <Content Include="Scripts\highchart\themes\dark-blue.js" />
+    <Content Include="Scripts\highchart\themes\dark-green.js" />
+    <Content Include="Scripts\highchart\themes\dark-unica.js" />
+    <Content Include="Scripts\highchart\themes\gray.js" />
+    <Content Include="Scripts\highchart\themes\grid-light.js" />
+    <Content Include="Scripts\highchart\themes\grid.js" />
+    <Content Include="Scripts\highchart\themes\sand-signika.js" />
+    <Content Include="Scripts\highchart\themes\skies.js" />
+    <Content Include="Scripts\html5.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.accordion.js" />
+    <Content Include="Scripts\jquery.csv.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.datetimepicker.min.js" />
+    <Content Include="Scripts\jquery.easing.min.js" />
+    <Content Include="Scripts\jquery.FileReader.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.formatCurrency-1.4.0.min.js" />
+    <Content Include="Scripts\jquery.formatCurrency.id-ID.js" />
+    <Content Include="Scripts\jquery.jeditable.mini.js" />
+    <Content Include="Scripts\jquery.metadata.min.js" />
+    <Content Include="Scripts\jquery.plugin.min.js" />
+    <Content Include="Scripts\jquery.timeentry.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\swfobject.js" />
+    <Content Include="Scripts\swf\expressInstall.swf" />
+    <Content Include="Scripts\swf\filereader.swf" />
+    <Content Include="Scripts\swf\test.swf" />
+    <Content Include="Scripts\firebug-lite.js" />
+    <Content Include="Scripts\ui\jquery-ui.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.accordion.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.autocomplete.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.button.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.core.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.datepicker.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.dialog.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.draggable.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.droppable.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-blind.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-bounce.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-clip.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-drop.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-explode.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-fade.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-fold.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-highlight.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-pulsate.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-scale.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-shake.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-slide.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-transfer.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.menu.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.mouse.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.position.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.progressbar.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.resizable.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.selectable.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.slider.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.sortable.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.spinner.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.tabs.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.tooltip.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.widget.min.js" />
+    <Content Include="Scripts\zebra_datepicker.js" />
+    <Content Include="SparePartUsage.aspx" />
+    <Content Include="StreamDownload.aspx" />
+    <Content Include="Styles\bootstrap-responsive.css" />
+    <Content Include="Styles\bootstrap-responsive.min.css" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\bootstrapper.css" />
+    <Content Include="Styles\calendar-disabled.png" />
+    <Content Include="Styles\calendar.png" />
+    <Content Include="Styles\default.css" />
+    <Content Include="Styles\ie6.1.1.css" />
+    <Content Include="Styles\inf.css" />
+    <Content Include="Styles\jquery.dataTables.css" />
+    <Content Include="Styles\jquery.datetimepicker.css" />
+    <Content Include="Styles\jquery.timeentry.css" />
+    <Content Include="Styles\menu.css" />
+    <Content Include="Styles\metallic.css" />
+    <Content Include="Styles\metallic\default-date.png" />
+    <Content Include="Styles\metallic\disabled-date.png" />
+    <Content Include="Styles\metallic\header.png" />
+    <Content Include="Styles\metallic\selected-date.png" />
+    <Content Include="Styles\print.css" />
+    <Content Include="Styles\reset.css" />
+    <Content Include="Images\strawberries.jpg" />
+    <Content Include="Styles\accordion.css" />
+    <Content Include="TPMOnlyChangePwd.aspx" />
+    <Content Include="TPMOnlyLogin.aspx" />
+    <Content Include="Tunnel.aspx" />
+    <Content Include="UnAuthorized.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="HT_Summary.aspx" />
+    <Content Include="WOBOMs.aspx" />
+    <Content Include="WorkOrderByStatus.aspx" />
+    <Content Include="YAccident.aspx" />
+    <Content Include="YBulk.aspx" />
+    <Content Include="YCheckList.aspx" />
+    <Content Include="YCheckListImg.aspx" />
+    <Content Include="YCrud.aspx" />
+    <Content Include="YDownTime.aspx" />
+    <Content Include="YHeaterMonitoring.aspx" />
+    <Content Include="YIWOAttachments.aspx" />
+    <Content Include="YIWorkOrders.aspx" />
+    <Content Include="yiwosummary.aspx" />
+    <Content Include="YMBOMS.aspx" />
+    <Content Include="YPMMaster.aspx" />
+    <Content Include="YPMMaster2.aspx" />
+    <Content Include="YPMStatus.aspx" />
+    <Content Include="YBDSummary.aspx" />
+    <Content Include="YPMSummary.aspx" />
+    <Content Include="YUser.aspx" />
+    <Content Include="YWorkOrders.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASMODAttribute.aspx.cs">
+      <DependentUpon>ASMODAttribute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASMODAttribute.aspx.designer.cs">
+      <DependentUpon>ASMODAttribute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ReportHelper.cs" />
+    <Compile Include="Classes\TPMhelper.cs" />
+    <Compile Include="Classes\WebsiteToImage.cs" />
+    <Compile Include="EmailNew.aspx.cs">
+      <DependentUpon>EmailNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmailNew.aspx.designer.cs">
+      <DependentUpon>EmailNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Methodes\Emailing.asmx.cs">
+      <DependentUpon>Emailing.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TpmEmailNew.aspx.cs">
+      <DependentUpon>TpmEmailNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TpmEmailNew.aspx.designer.cs">
+      <DependentUpon>TpmEmailNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YAccAttachment.aspx.cs">
+      <DependentUpon>YAccAttachment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YAccAttachment.aspx.designer.cs">
+      <DependentUpon>YAccAttachment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FAccident.aspx.cs">
+      <DependentUpon>FAccident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAccident.aspx.designer.cs">
+      <DependentUpon>FAccident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FileUploader.aspx.cs">
+      <DependentUpon>FileUploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileUploader.aspx.designer.cs">
+      <DependentUpon>FileUploader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FIWOrkOrder.aspx.cs">
+      <DependentUpon>FIWOrkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FIWOrkOrder.aspx.designer.cs">
+      <DependentUpon>FIWOrkOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FWorkOrder.aspx.cs">
+      <DependentUpon>FWorkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FWorkOrder.aspx.designer.cs">
+      <DependentUpon>FWorkOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetSessions.aspx.cs">
+      <DependentUpon>GetSessions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetSessions.aspx.designer.cs">
+      <DependentUpon>GetSessions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterChecklist.aspx.cs">
+      <DependentUpon>MasterChecklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterChecklist.aspx.designer.cs">
+      <DependentUpon>MasterChecklist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MChecklist.aspx.cs">
+      <DependentUpon>MChecklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MChecklist.aspx.designer.cs">
+      <DependentUpon>MChecklist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MCheckListPM.aspx.cs">
+      <DependentUpon>MCheckListPM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MCheckListPM.aspx.designer.cs">
+      <DependentUpon>MCheckListPM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Methodes\accident.asmx.cs">
+      <DependentUpon>accident.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\bmht.asmx.cs">
+      <DependentUpon>bmht.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\bom.asmx.cs">
+      <DependentUpon>bom.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\Bulk.asmx.cs">
+      <DependentUpon>Bulk.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\crud.asmx.cs">
+      <DependentUpon>crud.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\downtime.asmx.cs">
+      <DependentUpon>downtime.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\iwo.asmx.cs">
+      <DependentUpon>iwo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\mainpage.asmx.cs">
+      <DependentUpon>mainpage.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\MasterChecklist.asmx.cs">
+      <DependentUpon>MasterChecklist.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\pm.asmx.cs">
+      <DependentUpon>pm.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\report - Copy.asmx.cs">
+      <DependentUpon>report - Copy.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\report.asmx.cs">
+      <DependentUpon>report.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\Report2.asmx.cs">
+      <DependentUpon>Report2.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\user.asmx.cs">
+      <DependentUpon>user.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\workorder.asmx.cs">
+      <DependentUpon>workorder.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PMBoms.aspx.cs">
+      <DependentUpon>PMBoms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PMBoms.aspx.designer.cs">
+      <DependentUpon>PMBoms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PMedit.aspx.cs">
+      <DependentUpon>PMedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PMedit.aspx.designer.cs">
+      <DependentUpon>PMedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PMScheduleUpload.aspx.cs">
+      <DependentUpon>PMScheduleUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PMScheduleUpload.aspx.designer.cs">
+      <DependentUpon>PMScheduleUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintChecklist.aspx.cs">
+      <DependentUpon>PrintChecklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintChecklist.aspx.designer.cs">
+      <DependentUpon>PrintChecklist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="printchecklistSearch.aspx.cs">
+      <DependentUpon>printchecklistSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="printchecklistSearch.aspx.designer.cs">
+      <DependentUpon>printchecklistSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report2.aspx.cs">
+      <DependentUpon>Report2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report2.aspx.designer.cs">
+      <DependentUpon>Report2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SparePartUsage.aspx.cs">
+      <DependentUpon>SparePartUsage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SparePartUsage.aspx.designer.cs">
+      <DependentUpon>SparePartUsage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StreamDownload.aspx.cs">
+      <DependentUpon>StreamDownload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StreamDownload.aspx.designer.cs">
+      <DependentUpon>StreamDownload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TPM.Master.cs">
+      <DependentUpon>TPM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TPM.Master.designer.cs">
+      <DependentUpon>TPM.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TPMOnlyChangePwd.aspx.cs">
+      <DependentUpon>TPMOnlyChangePwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TPMOnlyChangePwd.aspx.designer.cs">
+      <DependentUpon>TPMOnlyChangePwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TPMOnlyLogin.aspx.cs">
+      <DependentUpon>TPMOnlyLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TPMOnlyLogin.aspx.designer.cs">
+      <DependentUpon>TPMOnlyLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tunnel.aspx.cs">
+      <DependentUpon>Tunnel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tunnel.aspx.designer.cs">
+      <DependentUpon>Tunnel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UnAuthorized.aspx.cs">
+      <DependentUpon>UnAuthorized.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnAuthorized.aspx.designer.cs">
+      <DependentUpon>UnAuthorized.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HT_Summary.aspx.cs">
+      <DependentUpon>HT_Summary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HT_Summary.aspx.designer.cs">
+      <DependentUpon>HT_Summary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WOBOMs.aspx.cs">
+      <DependentUpon>WOBOMs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WOBOMs.aspx.designer.cs">
+      <DependentUpon>WOBOMs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkOrderByStatus.aspx.cs">
+      <DependentUpon>WorkOrderByStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorkOrderByStatus.aspx.designer.cs">
+      <DependentUpon>WorkOrderByStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YAccident.aspx.cs">
+      <DependentUpon>YAccident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YAccident.aspx.designer.cs">
+      <DependentUpon>YAccident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YBulk.aspx.cs">
+      <DependentUpon>YBulk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YBulk.aspx.designer.cs">
+      <DependentUpon>YBulk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YCheckList.aspx.cs">
+      <DependentUpon>YCheckList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YCheckList.aspx.designer.cs">
+      <DependentUpon>YCheckList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YCheckListImg.aspx.cs">
+      <DependentUpon>YCheckListImg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YCheckListImg.aspx.designer.cs">
+      <DependentUpon>YCheckListImg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YCrud.aspx.cs">
+      <DependentUpon>YCrud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YCrud.aspx.designer.cs">
+      <DependentUpon>YCrud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YDownTime.aspx.cs">
+      <DependentUpon>YDownTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YDownTime.aspx.designer.cs">
+      <DependentUpon>YDownTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YHeaterMonitoring.aspx.cs">
+      <DependentUpon>YHeaterMonitoring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YHeaterMonitoring.aspx.designer.cs">
+      <DependentUpon>YHeaterMonitoring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YIWOAttachments.aspx.cs">
+      <DependentUpon>YIWOAttachments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YIWOAttachments.aspx.designer.cs">
+      <DependentUpon>YIWOAttachments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YIWorkOrders.aspx.cs">
+      <DependentUpon>YIWorkOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YIWorkOrders.aspx.designer.cs">
+      <DependentUpon>YIWorkOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yiwosummary.aspx.cs">
+      <DependentUpon>yiwosummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yiwosummary.aspx.designer.cs">
+      <DependentUpon>yiwosummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YMBOMS.aspx.cs">
+      <DependentUpon>YMBOMS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YMBOMS.aspx.designer.cs">
+      <DependentUpon>YMBOMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YPMMaster.aspx.cs">
+      <DependentUpon>YPMMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YPMMaster.aspx.designer.cs">
+      <DependentUpon>YPMMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YPMMaster2.aspx.cs">
+      <DependentUpon>YPMMaster2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YPMMaster2.aspx.designer.cs">
+      <DependentUpon>YPMMaster2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YPMStatus.aspx.cs">
+      <DependentUpon>YPMStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YPMStatus.aspx.designer.cs">
+      <DependentUpon>YPMStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YBDSummary.aspx.cs">
+      <DependentUpon>YBDSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YBDSummary.aspx.designer.cs">
+      <DependentUpon>YBDSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YPMSummary.aspx.cs">
+      <DependentUpon>YPMSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YPMSummary.aspx.designer.cs">
+      <DependentUpon>YPMSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YUser.aspx.cs">
+      <DependentUpon>YUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YUser.aspx.designer.cs">
+      <DependentUpon>YUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YWorkOrders.aspx.cs">
+      <DependentUpon>YWorkOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YWorkOrders.aspx.designer.cs">
+      <DependentUpon>YWorkOrders.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="TPM.Master" />
+    <Content Include="Scripts\flot\examples\ajax.php" />
+    <Content Include="Scripts\flot\examples\CHART.php" />
+    <Content Include="Scripts\flot\examples\data-eu-gdp-growth-1.json" />
+    <Content Include="Scripts\flot\examples\data-eu-gdp-growth-2.json" />
+    <Content Include="Scripts\flot\examples\data-eu-gdp-growth-3.json" />
+    <Content Include="Scripts\flot\examples\data-eu-gdp-growth-4.json" />
+    <Content Include="Scripts\flot\examples\data-eu-gdp-growth-5.json" />
+    <Content Include="Scripts\flot\examples\data-eu-gdp-growth.json" />
+    <Content Include="Scripts\flot\examples\data-japan-gdp-growth.json" />
+    <Content Include="Scripts\flot\examples\data-usa-gdp-growth.json" />
+    <Content Include="Scripts\flot\examples\getbatch.php" />
+    <Content Include="Scripts\flot\examples\getuser.php" />
+    <Content Include="Scripts\flot\examples\getuser_1.php" />
+    <Content Include="Scripts\flot\examples\history.php" />
+    <Content Include="Scripts\flot\examples\limiter.json" />
+    <Content Include="Scripts\flot\examples\selector.php" />
+    <Content Include="Scripts\flot\Makefile" />
+    <Content Include="Scripts\flot\test.php" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadedFiles\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>1459</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1459/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://localhost:81/</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
