@@ -52,6 +52,12 @@ namespace TPM.Classes
             get { return ConfigurationManager.ConnectionStrings["strDBVMSQA"].ConnectionString.ToString(); }
 
         }
+        public static string DBToolSstring
+        {
+
+            get { return ConfigurationManager.ConnectionStrings["StrTool"].ConnectionString; }
+
+        }
         public static string DBINVENTORYstring
         {
             get { return ConfigurationManager.ConnectionStrings["strInventory"].ConnectionString.ToString(); }

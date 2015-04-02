@@ -114,7 +114,9 @@
     <Content Include="ASMODAttribute.aspx" />
     <Content Include="EmailNew.aspx" />
     <Content Include="Methodes\Emailing.asmx" />
+    <Content Include="Methodes\tool.asmx" />
     <Content Include="Scripts\highcharts-3d.js" />
+    <Content Include="ToolShow.aspx" />
     <Content Include="TpmEmailNew.aspx" />
     <Content Include="YAccAttachment.aspx" />
     <Content Include="Default.aspx" />
@@ -415,6 +417,17 @@
     <Compile Include="Methodes\Emailing.asmx.cs">
       <DependentUpon>Emailing.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Methodes\tool.asmx.cs">
+      <DependentUpon>tool.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolShow.aspx.cs">
+      <DependentUpon>ToolShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ToolShow.aspx.designer.cs">
+      <DependentUpon>ToolShow.aspx</DependentUpon>
     </Compile>
     <Compile Include="TpmEmailNew.aspx.cs">
       <DependentUpon>TpmEmailNew.aspx</DependentUpon>
